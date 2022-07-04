@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"
 using namespace std;
+
 string longestCommonPrefix(vector<string> &strs)
 {
     string ans = strs[0];
@@ -35,21 +36,26 @@ int findMinLength(vector<string> &strs, int n)
 string longestCommonPrefixop(vector<string> &strs)
 {
     int n = strs.size();
-    int minlen = findMinLength(strs, n);
 
-    string result; // Our resultant string
-    char current;  // The current character
+    string result = "";
+    char curr;
+    int mn = findMinLength(strs, n);
 
-    for (int i = 0; i < minlen; i++)
+    for (int i = 0; i < mn; i++)
     {
-        current = strs[0][i];
-        for (int j = 1; j < n; j++)
-            if (strs[j][i] != current)
-                return result;
-        result.push_back(current);
+        curr = strs[0][i];
+        {
+            for (int j = 1; j < n; j++)
+            {
+                if (curr != strs[j][i])
+                {
+                    return result;
+                }
+            }
+            result += curr;
+        }
     }
-
-    return (result);
+    return result;
 }
 int main()
 {
