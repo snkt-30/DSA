@@ -31,7 +31,7 @@ int lisdp(int i)
     {
         if(ar[i]>ar[j])
         {
-            ans=max(ans,lisbrute(j)+1);
+            ans=max(ans,lisbrute(j)+1);                                                     
         }
     }
     return dp[i]=ans;
